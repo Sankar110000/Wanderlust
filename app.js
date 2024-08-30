@@ -35,7 +35,7 @@ store.on("error", (err) => {
 
 const sessionOptions = {
     store,
-    secret: "supersecretcode",
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {

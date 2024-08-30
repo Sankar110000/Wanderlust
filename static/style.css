@@ -1,0 +1,92 @@
+a{
+    text-decoration: none;
+    color: #121212
+}
+
+ul{
+    list-style: none;
+}
+
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+footer {
+    background-color: aliceblue;
+    height: 5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: large;
+    position:static;
+    margin-top: 50px;
+}
+
+.reviews{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.review{
+    height: 50px;
+    width: auto;
+    line-height: 12px;
+    background-color: aliceblue;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding:5px 5px 10px 5px;
+    margin: 0 5px 15px 5px;
+}
+
+.navbar{
+    position:sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+
+.filters{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 5rem;
+}
+
+.filter{
+    margin-left: 2rem;
+    margin-top: 1rem;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.filter p {
+    font-size: smaller;
+}
+
+.filter:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.tax-info{
+    display: none;
+}
+
+#reverseCheck1{
+    height: 3rem;
+    width: 16rem;
+    padding-left: 2rem;
+    padding-top: 0.6rem;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-top: 1rem;
+    margin-left: 12rem;
+}
+
+.d-flex{
+    margin-left: 17rem;
+}

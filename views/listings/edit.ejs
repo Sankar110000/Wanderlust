@@ -1,0 +1,17 @@
+<% layout('layouts/boilerplate.ejs') -%>
+
+<div class="container col-6 row offset-3" >
+    <form action="/listings/<%= listing.id %>?_method=PATCH" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+      <p>Enter title : <input type="text" name="listing[title]" class="form-control" value="<%= listing.title %>" required></p>
+      <p>Enter description : <input type="text" name="listing[description]" class="form-control" value="<%= listing.description %>" required></p>
+      <p>Enter price : <input type="text" name="listing[price]" class="form-control" value="<%= listing.price %>" required></p>
+      <p> Enter location : <input type="text" name="listing[location]" class="form-control" value="<%= listing.location %>" required></p>
+      <p>Enter country : <input type="text" name="listing[country]" class="form-control" value="<%= listing.country %>" required></p>
+      <b>Original Image</b>
+      <div class="mb-3">
+        <img src="<%= originalImageUrl %>"  style="height: 200px; width: 300px;">
+      </div>
+      <p>Enter Image Url : <input type="file" name="listing[imageUrl]" class="form-control"></p>
+      <button class="btn btn-dark">Edit</button>
+    </form>
+  </div>

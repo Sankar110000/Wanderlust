@@ -1,0 +1,13 @@
+<% layout('layouts/boilerplate.ejs') -%>
+
+  <div class="container col-3">
+    <form action="/listings" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
+      <p>Enter title : <input type="text" name="listing[title]" class="form-control" required></p>
+      <p>Enter description : <input type="text" name="listing[description]" class="form-control" required></p>
+      <p>Enter price : <input type="text" name="listing[price]" class="form-control" required></p>
+      <p>Enter location : <input type="text" name="listing[location]" class="form-control" required></p>
+      <p>Enter country : <input type="text" name="listing[country]" class="form-control" required></p>
+      <p>Enter Image Url : <input type="file" name="listing[imageUrl]" class="form-control"></p>
+      <button class="btn btn-dark">Submit</button>
+    </form>
+  </div>

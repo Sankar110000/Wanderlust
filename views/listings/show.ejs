@@ -78,12 +78,14 @@
           <br />
           <li>Review = <%= review.comment %></li>
           <br />
-          <form
+          <% if(user.id == listing.owner.id) { %>
+            <form
             action="/listings/<%= listing.id %>/reviews/<%= review.id %>"
             method="POST"
           >
             <button class="btn btn-dark">Delete</button>
           </form>
+          <% } %>
         </ul>
       </div>
       <% } %>

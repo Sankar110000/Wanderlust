@@ -14,6 +14,9 @@
 - Multer for for uploading files
 - Cloudinary for cloud storage
 
+## The Screen shot of the webpage
+[Wanderlust](./static/images/Screenshot%202024-08-30%20203658.png)
+
 
 ## The whole websites is deployed on Render
 You can try through this - [Wanderlust](https://wanderlust-q6kw.onrender.com/listings)

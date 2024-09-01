@@ -19,7 +19,7 @@ const dbUrl = process.env.ATLASDB_URL;
 let secret = process.env.SECRET;
 
 const app = express();
-const port = 8080;
+const port = 8080 || 3000 || 5000;
 
 const store = MongoStore.create({
     mongoUrl: dbUrl,
@@ -88,5 +88,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(port, () => {
-    console.log("App listening on port 8080");
+    console.log(`App listening on port ${port}`);
 });

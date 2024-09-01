@@ -78,7 +78,7 @@
           <br />
           <li>Review = <%= review.comment %></li>
           <br />
-          <% if(user.id == listing.owner.id) { %>
+          <% if(user && user._id.equals(review.author._id)) { %>
             <form
             action="/listings/<%= listing.id %>/reviews/<%= review.id %>"
             method="POST"

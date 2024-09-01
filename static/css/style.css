@@ -11,18 +11,16 @@ ul{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 5rem;
 }
 
 footer {
     background-color: aliceblue;
-    height: 5rem;
+    height: 6rem;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    font-size: large;
-    position:static;
-    margin-top: 50px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
 }
 
 .reviews{

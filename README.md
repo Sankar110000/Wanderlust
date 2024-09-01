@@ -15,7 +15,7 @@
 - Cloudinary for cloud storage
 
 ## The Screen shot of the webpage
-[Wanderlust](./static/images/Screenshot%202024-08-30%20203658.png)
+[Wanderlust](./static/images/Screenshot%202024-08-31%20204828.png);
 
 
 ## The whole websites is deployed on Render

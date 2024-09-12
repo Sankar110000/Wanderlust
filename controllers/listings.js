@@ -3,8 +3,15 @@ const Listing = require("../models/listings.js");
 const ExpressError = require("../utils/ExpressError.js");
 
 module.exports.index = async (req, res) => {
-  const listings = await Listing.find();
-  res.render("listings/index.ejs", { listings });
+  let {catagory} = req.query;
+  if(!catagory){
+    const listings = await Listing.find();
+    res.render("listings/index.ejs", { listings });
+  }else{
+    let listings = await Listing.find({catagory});
+    res.render("listings/index.ejs", {listings});
+  }
+  
 };
 
 module.exports.renderNewForm = (req, res) => {
@@ -14,7 +21,7 @@ module.exports.renderNewForm = (req, res) => {
 module.exports.createListing = async (req, res, next) => {
   let filename = req.file.filename;
   let url = req.file.path;
-  let { title, description, price, location, country } = req.body.listing;
+  let { title, description, price, location, country, catagory } = req.body.listing;
   let listing = new Listing({
     title: title,
     description: description,
@@ -22,9 +29,11 @@ module.exports.createListing = async (req, res, next) => {
     location: location,
     country: country,
     owner: req.user.id,
+    catagory: catagory
   });
   listing.image = { url, filename };
   let savedListing = await listing.save();
+  console.log(savedListing);
   req.flash("success", "Listing created successfully");
   res.redirect("/listings");
 };

@@ -4,51 +4,72 @@
 <ul>
   <div class="filters">
     <div class="filter">
-      <div><i class="fa-solid fa-fire"></i></div>
-      <p>Trending</p>
+    <a href="/listings/?catagory=trending">
+        <div><i class="fa-solid fa-fire"></i></div>
+        <a>Trending</a>
+    </a>
     </div>
     <div class="filter">
-      <div><i class="fa-solid fa-bed"></i></div>
-      <p>Rooms</p>
+    <a href="/listings/?catagory=rooms">
+        <div><i class="fa-solid fa-bed"></i></div>
+        <a>Rooms</a>
+    </a>
     </div>
     <div class="filter">
-      <div><i class="fa-solid fa-mountain-city"></i></div>
-      <p>Mountain Cities</p>
+    <a href="/listings/?catagory=mountainCities">
+        <div><i class="fa-solid fa-mountain-city"></i></div>
+        <a>Mountain Cities</a>
+    </a>
     </div>
     <div class="filter">
-      <div><i class="fa-solid fa-mountain"></i></div>
-      <p>Mountains</p>
+    <a href="/listings/?catagory=mountain">
+        <div><i class="fa-solid fa-mountain"></i></div>
+        <a>Mountain</a>
+    </a>
     </div>
     <div class="filter">
-      <div><i class="fa-brands fa-fort-awesome-alt"></i></div>
-      <p>Castles</p>
+    <a href="/listings/?catagory=castles">
+        <div><i class="fa-brands fa-fort-awesome-alt"></i></div>
+        <a>Castles</a>
+    </a>
     </div>
     <div class="filter">
-      <div><i class="fa-solid fa-water-ladder"></i></div>
-      <p>Amazing Pools</p>
+    <a href="/listings/?catagory=amazingPools">
+        <div><i class="fa-solid fa-water-ladder"></i></div>
+        <a>Amazing Pools</a>
+    </a>
     </div>
     <div class="filter">
-      <div><i class="fa-solid fa-tent"></i></div>
-      <p>Camping</p>
+    <a href="/listings/?catagory=camping">
+        <div><i class="fa-solid fa-tent"></i></div>
+        <a>Camping</a>
+    </a>
     </div>
     <div class="filter">
-      <div><i class="fa-solid fa-cow"></i></div>
-      <p>Farms</p>
+    <a href="/listings/?catagory=farm">
+        <div><i class="fa-solid fa-tractor"></i></div>
+        <a>Farm</a>
+    </a>
     </div>
     <div class="filter">
-      <div><i class="fa-regular fa-snowflake"></i></div>
-      <p>Arctic</p>
+    <a href="/listings/?catagory=arctic">
+        <div><i class="fa-solid fa-snowman"></i></div>
+        <a>Arctic</a>
+    </a>
     </div>
-
     <div id="reverseCheck1">
       <div class="form-check form-switch">
         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
         <label class="form-check-label" for="flexSwitchCheckDefault">Display With Taxes</label>
       </div>
     </div>
-    <br>
   </div>
-  
+    
+  <br>
+
+  <% if(!listings.length) { %>
+    <h3 style="text-align: center; color: #585454; margin-top: 5rem;">No listings found <i class="fa-solid fa-face-frown"></i></h3>
+  <% } %>
   <div class="main">
     <% for(listing of listings) { %>
     <a href="/listings/<%= listing.id %>">

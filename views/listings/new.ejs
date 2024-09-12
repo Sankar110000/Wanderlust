@@ -1,13 +1,27 @@
 <% layout('layouts/boilerplate.ejs') -%>
 
-  <div class="container col-3">
+  <div class="row col-6 offset-3">
+    <h3>Create listing</h3>
     <form action="/listings" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
-      <p>Enter title : <input type="text" name="listing[title]" class="form-control" required></p>
+      <p>Enter title : <input type="text" name="listing[title]" class="form-control  col-4" required></p>
       <p>Enter description : <input type="text" name="listing[description]" class="form-control" required></p>
       <p>Enter price : <input type="text" name="listing[price]" class="form-control" required></p>
       <p>Enter location : <input type="text" name="listing[location]" class="form-control" required></p>
       <p>Enter country : <input type="text" name="listing[country]" class="form-control" required></p>
       <p>Enter Image Url : <input type="file" name="listing[imageUrl]" class="form-control"></p>
-      <button class="btn btn-dark">Submit</button>
+      <p>Catagory : 
+        <select class="form-select" aria-label="Default select example" name="listing[catagory]">
+        <option selected>Select</option>
+        <option value="trending">Trending</option>
+        <option value="rooms">Rooms</option>
+        <option value="mountainCities">Mountain Cities</option>
+        <option value="mountain">Mountain</option>
+        <option value="castles">Castles</option>
+        <option value="amazingPools">Amazing Pools</option>
+        <option value="campings">Campings</option>
+        <option value="farm">Farm</option>
+        <option value="arctic">Arctic</option>
+      </select></p>
+      <button class="btn btn-dark" style="margin-bottom: 7rem;">Submit</button>
     </form>
   </div>

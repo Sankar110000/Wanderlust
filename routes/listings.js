@@ -16,7 +16,7 @@ router
   .post(
     isLoggedIn,
     upload.single("listing[imageUrl]"),
-    wrapAsync(listingController.createListing)
+    listingController.createListing
   );
 
 router.route("/new").get(isLoggedIn, listingController.renderNewForm);

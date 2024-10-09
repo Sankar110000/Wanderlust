@@ -3,6 +3,7 @@
 <div class="main">
   <div class="card" style="width: 35rem; margin-top: 2rem; border: none">
     <h3><%= listing.title %></h3>
+    <p>Owned by: <b><%= listing.owner.username %></b></p>
     <img
       src="<%= listing.image.url %>"
       class="card-img-top"

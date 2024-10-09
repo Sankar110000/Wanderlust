@@ -33,7 +33,6 @@ module.exports.createListing = async (req, res, next) => {
   });
   listing.image = { url, filename };
   let savedListing = await listing.save();
-  console.log(savedListing);
   req.flash("success", "Listing created successfully");
   res.redirect("/listings");
 };
@@ -43,7 +42,7 @@ module.exports.showListing = async (req, res, next) => {
   let listing = await Listing.findById(id).populate({
     path: "reviews",
     populate: { path: "author" },
-  });
+  }).populate("owner");
   res.render("listings/show.ejs", { listing });
 };
 

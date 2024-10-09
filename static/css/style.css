@@ -88,3 +88,15 @@ footer {
 .d-flex{
     margin-left: 17rem;
 }
+
+.profile p{
+    margin-bottom: 0px;
+    margin-right: 3rem;
+}
+
+.profileIcon{
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid black;
+}

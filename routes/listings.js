@@ -8,7 +8,9 @@ const flash = require("connect-flash");
 const user = require("../models/user.js");
 const multer = require("multer");
 const { storage } = require("../cloudConfig.js");
+const ExpressError = require("../utils/ExpressError.js");
 const upload = multer({ storage });
+
 
 router
   .route("/")
@@ -16,7 +18,7 @@ router
   .post(
     isLoggedIn,
     upload.single("listing[imageUrl]"),
-    listingController.createListing
+    wrapAsync(listingController.createListing)
   );
 
 router.route("/new").get(isLoggedIn, listingController.renderNewForm);

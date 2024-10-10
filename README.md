@@ -19,4 +19,4 @@
 
 
 ## The whole websites is deployed on Render
-You can try through this - [Wanderlust](https://wanderlust-q6kw.onrender.com/listings)
+You can try through this - [Wanderlust](https://wanderlust-c5br.onrender.com/listings)

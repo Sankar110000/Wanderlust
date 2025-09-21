@@ -1,4 +1,7 @@
-const Listing = require("./models/listings.js");
+const Listing = require("../models/listings.js");
+const dbConnection = require("./dbConnect.js");
+
+const ownerId = "67a25fd6109e0e749aceb9fb"; // Define the owner ID
 
 const hotels = [
   {
@@ -12,6 +15,7 @@ const hotels = [
     price: 1500,
     location: "Malibu",
     country: "United States",
+    owner: ownerId,
   },
   {
     title: "Modern Loft in Downtown",
@@ -24,6 +28,7 @@ const hotels = [
     price: 1200,
     location: "New York City",
     country: "United States",
+    owner: ownerId,
   },
   {
     title: "Mountain Retreat",
@@ -36,6 +41,7 @@ const hotels = [
     price: 1000,
     location: "Aspen",
     country: "United States",
+    owner: ownerId,
   },
   {
     title: "Historic Villa in Tuscany",
@@ -48,6 +54,7 @@ const hotels = [
     price: 2500,
     location: "Florence",
     country: "Italy",
+    owner: ownerId,
   },
   {
     title: "Secluded Treehouse Getaway",
@@ -60,6 +67,7 @@ const hotels = [
     price: 800,
     location: "Portland",
     country: "United States",
+    owner: ownerId,
   },
   {
     title: "Beachfront Paradise",
@@ -72,6 +80,7 @@ const hotels = [
     price: 2000,
     location: "Cancun",
     country: "Mexico",
+    owner: ownerId,
   },
   {
     title: "Rustic Cabin by the Lake",
@@ -84,6 +93,7 @@ const hotels = [
     price: 900,
     location: "Lake Tahoe",
     country: "United States",
+    owner: ownerId,
   },
   {
     title: "Luxury Penthouse with City Views",
@@ -96,6 +106,7 @@ const hotels = [
     price: 3500,
     location: "Los Angeles",
     country: "United States",
+    owner: ownerId,
   },
   {
     title: "Ski-In/Ski-Out Chalet",
@@ -108,6 +119,7 @@ const hotels = [
     price: 3000,
     location: "Verbier",
     country: "Switzerland",
+    owner: ownerId,
   },
   {
     title: "Safari Lodge in the Serengeti",
@@ -120,6 +132,7 @@ const hotels = [
     price: 4000,
     location: "Serengeti National Park",
     country: "Tanzania",
+    owner: ownerId,
   },
   {
     title: "Historic Canal House",
@@ -132,6 +145,7 @@ const hotels = [
     price: 1800,
     location: "Amsterdam",
     country: "Netherlands",
+    owner: ownerId,
   },
   {
     title: "Private Island Retreat",
@@ -144,6 +158,7 @@ const hotels = [
     price: 10000,
     location: "Fiji",
     country: "Fiji",
+    owner: ownerId,
   },
   {
     title: "Charming Cottage in the Cotswolds",
@@ -156,6 +171,7 @@ const hotels = [
     price: 1200,
     location: "Cotswolds",
     country: "United Kingdom",
+    owner: ownerId,
   },
   {
     title: "Historic Brownstone in Boston",
@@ -168,6 +184,7 @@ const hotels = [
     price: 2200,
     location: "Boston",
     country: "United States",
+    owner: ownerId,
   },
   {
     title: "Beachfront Bungalow in Bali",
@@ -180,6 +197,7 @@ const hotels = [
     price: 1800,
     location: "Bali",
     country: "Indonesia",
+    owner: ownerId,
   },
   {
     title: "Mountain View Cabin in Banff",
@@ -192,6 +210,7 @@ const hotels = [
     price: 1500,
     location: "Banff",
     country: "Canada",
+    owner: ownerId,
   },
   {
     title: "Art Deco Apartment in Miami",
@@ -204,6 +223,7 @@ const hotels = [
     price: 1600,
     location: "Miami",
     country: "United States",
+    owner: ownerId,
   },
   {
     title: "Tropical Villa in Phuket",
@@ -216,6 +236,7 @@ const hotels = [
     price: 3000,
     location: "Phuket",
     country: "Thailand",
+    owner: ownerId,
   },
   {
     title: "Historic Castle in Scotland",
@@ -228,6 +249,7 @@ const hotels = [
     price: 4000,
     location: "Scottish Highlands",
     country: "United Kingdom",
+    owner: ownerId,
   },
   {
     title: "Desert Oasis in Dubai",
@@ -240,6 +262,7 @@ const hotels = [
     price: 5000,
     location: "Dubai",
     country: "United Arab Emirates",
+    owner: ownerId,
   },
   {
     title: "Rustic Log Cabin in Montana",
@@ -252,6 +275,7 @@ const hotels = [
     price: 1100,
     location: "Montana",
     country: "United States",
+    owner: ownerId,
   },
   {
     title: "Beachfront Villa in Greece",
@@ -264,6 +288,7 @@ const hotels = [
     price: 2500,
     location: "Mykonos",
     country: "Greece",
+    owner: ownerId,
   },
   {
     title: "Eco-Friendly Treehouse Retreat",
@@ -276,6 +301,7 @@ const hotels = [
     price: 750,
     location: "Costa Rica",
     country: "Costa Rica",
+    owner: ownerId,
   },
   {
     title: "Historic Cottage in Charleston",
@@ -288,6 +314,7 @@ const hotels = [
     price: 1600,
     location: "Charleston",
     country: "United States",
+    owner: ownerId,
   },
   {
     title: "Modern Apartment in Tokyo",
@@ -300,6 +327,7 @@ const hotels = [
     price: 2000,
     location: "Tokyo",
     country: "Japan",
+    owner: ownerId,
   },
   {
     title: "Lakefront Cabin in New Hampshire",
@@ -312,6 +340,7 @@ const hotels = [
     price: 1200,
     location: "New Hampshire",
     country: "United States",
+    owner: ownerId,
   },
   {
     title: "Luxury Villa in the Maldives",
@@ -324,6 +353,7 @@ const hotels = [
     price: 6000,
     location: "Maldives",
     country: "Maldives",
+    owner: ownerId,
   },
   {
     title: "Ski Chalet in Aspen",
@@ -336,6 +366,7 @@ const hotels = [
     price: 4000,
     location: "Aspen",
     country: "United States",
+    owner: ownerId,
   },
   {
     title: "Secluded Beach House in Costa Rica",
@@ -348,24 +379,15 @@ const hotels = [
     price: 1800,
     location: "Costa Rica",
     country: "Costa Rica",
+    owner: ownerId,
   },
 ];
 
-async function clearDatabase() {
-    await Listing.deleteMany({})
-        .then((res) => {
-            console.log(res);
-        })
-        .catch(err => { console.log(err) })
+async function initData() {
+  await dbConnection();
+  await Listing.deleteMany({});
+  await Listing.insertMany(hotels);
+  console.log("Data initialized successfully");
 }
 
-async function addData() {
-   let newHotels = hotels.map((hotel) => {return {...hotel, owner: "66b7940d7835045fb8ad8614"}});
-    let listings = await Listing.insertMany(newHotels)
-        .then(res => { console.log("Initialized data successfully") })
-        .catch(err => { console.log(err); })
-}
-
-
-clearDatabase();
-addData();
+initData();

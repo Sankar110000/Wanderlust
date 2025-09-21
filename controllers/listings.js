@@ -1,17 +1,17 @@
 const { models } = require("mongoose");
 const Listing = require("../models/listings.js");
 const ExpressError = require("../utils/ExpressError.js");
+const dbConnection = require("../db/dbConnect.js");
 
 module.exports.index = async (req, res) => {
-  let {catagory} = req.query;
-  if(!catagory){
+  let { catagory } = req.query;
+  if (!catagory) {
     const listings = await Listing.find();
     res.render("listings/index.ejs", { listings });
-  }else{
-    let listings = await Listing.find({catagory});
-    res.render("listings/index.ejs", {listings});
+  } else {
+    let listings = await Listing.find({ catagory });
+    res.render("listings/index.ejs", { listings });
   }
-  
 };
 
 module.exports.renderNewForm = (req, res) => {
@@ -21,7 +21,8 @@ module.exports.renderNewForm = (req, res) => {
 module.exports.createListing = async (req, res, next) => {
   let filename = req.file.filename;
   let url = req.file.path;
-  let { title, description, price, location, country, catagory } = req.body.listing;
+  let { title, description, price, location, country, catagory } =
+    req.body.listing;
   let listing = new Listing({
     title: title,
     description: description,
@@ -29,20 +30,22 @@ module.exports.createListing = async (req, res, next) => {
     location: location,
     country: country,
     owner: req.user.id,
-    catagory: catagory
+    catagory: catagory,
   });
   listing.image = { url, filename };
-  let savedListing = await listing.save();
+  await listing.save();
   req.flash("success", "Listing created successfully");
   res.redirect("/listings");
 };
 
 module.exports.showListing = async (req, res, next) => {
   let { id } = req.params;
-  let listing = await Listing.findById(id).populate({
-    path: "reviews",
-    populate: { path: "author" },
-  }).populate("owner");
+  let listing = await Listing.findById(id)
+    .populate({
+      path: "reviews",
+      populate: { path: "author" },
+    })
+    .populate("owner");
   res.render("listings/show.ejs", { listing });
 };
 
@@ -75,14 +78,14 @@ module.exports.updateListing = async (req, res) => {
 };
 
 module.exports.renderSearchedListing = async (req, res, next) => {
-  let {searchedListing} = req.body;
-  let listing = await Listing.findOne({title: searchedListing}).populate({
+  let { searchedListing } = req.body;
+  let listing = await Listing.findOne({ title: searchedListing }).populate({
     path: "reviews",
-    populate: {path: "author"}
+    populate: { path: "author" },
   });
-  if(listing){
-    res.render("listings/show.ejs", {listing});
-  }else{
+  if (listing) {
+    res.render("listings/show.ejs", { listing });
+  } else {
     throw new ExpressError(404, "No such listing found");
   }
 };

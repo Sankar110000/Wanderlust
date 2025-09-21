@@ -13,7 +13,7 @@
     <div class="card-body">
       <p class="card-text"><b><%= listing.description %></b></p>
       <p class="card-text">Price: <%= listing.price %>&#x20b9; /Night</p>
-      <% if(user && listing.owner._id.equals(user._id)) { %>
+      <% if(user._id.equals(listing.owner._id)) { %>
         
       <a href="/listings/edit/<%= listing.id %>" class="btn btn-primary"
         >Edit</a
